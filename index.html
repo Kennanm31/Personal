@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Network Security Strength Checker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Network Security Strength Checker</h1>
+      <p class="subtitle">
+        Answer a few questions to estimate how strong your home or small-office network security is.
+      </p>
+
+      <form id="securityForm" class="card">
+        <label>
+          Wi-Fi encryption type
+          <select id="encryption" required>
+            <option value="">Select one</option>
+            <option value="wpa3">WPA3</option>
+            <option value="wpa2">WPA2</option>
+            <option value="wep">WEP / Open</option>
+          </select>
+        </label>
+
+        <label>
+          Admin password quality
+          <select id="adminPassword" required>
+            <option value="">Select one</option>
+            <option value="strong">Strong (12+ chars, unique)</option>
+            <option value="medium">Medium (8+ chars)</option>
+            <option value="weak">Weak / default password</option>
+          </select>
+        </label>
+
+        <label>
+          Firmware update frequency
+          <select id="firmware" required>
+            <option value="">Select one</option>
+            <option value="monthly">Monthly / auto-updates</option>
+            <option value="yearly">A few times per year</option>
+            <option value="rarely">Rarely / never</option>
+          </select>
+        </label>
+
+        <label>
+          Is the router firewall enabled?
+          <select id="firewall" required>
+            <option value="">Select one</option>
+            <option value="yes">Yes</option>
+            <option value="unknown">Not sure</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+
+        <label>
+          Separate guest network for visitors?
+          <select id="guest" required>
+            <option value="">Select one</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+
+        <button type="submit">Check Strength</button>
+      </form>
+
+      <section id="result" class="card hidden" aria-live="polite">
+        <h2>Result</h2>
+        <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div id="meterFill" class="meter-fill"></div>
+        </div>
+        <p id="scoreText"></p>
+        <ul id="tips"></ul>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
